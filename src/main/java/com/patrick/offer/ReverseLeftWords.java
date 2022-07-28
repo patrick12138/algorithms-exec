@@ -25,10 +25,6 @@ public class ReverseLeftWords {
         int length = chars.length;
         swap(chars, n - 1, length - 1);
         swap(chars, n - 2, length - 2);
-//        for (int i = n - 1; i < length; i++) {
-//            for (int j = i; i < length - 1; j++)
-//                swap(chars, i,j);
-//        }
         return new String(chars, 0, length);
     }
 

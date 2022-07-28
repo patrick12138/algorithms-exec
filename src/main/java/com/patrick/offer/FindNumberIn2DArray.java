@@ -31,20 +31,26 @@ public class FindNumberIn2DArray {
         return false;
     }
 
+    /**
+     * 从矩阵 matrix 左下角元素（索引设为 (i, j) ）开始遍历，并与目标值对比：
+     * 当 matrix[i][j] > target 时，执行 i-- ，即消去第 i 行元素；
+     * 当 matrix[i][j] < target 时，执行 j++ ，即消去第 j 列元素；
+     * 当 matrix[i][j] = target 时，返回 truetrue ，代表找到目标值。
+     * 若行索引或列索引越界，则代表矩阵中无目标值，返回 falsefalse 。
+     *
+     * @param matrix
+     * @param target
+     * @return
+     */
     public boolean findNumberIn2DArray1(int[][] matrix, int target) {
-        if (matrix == null || matrix.length == 0) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             return false;
         }
-        int m = matrix.length, n = matrix[0].length;
-        int row = 0, col = n - 1;
-        while (row < m && col >= 0) {
-            if (matrix[row][col] > target) {
-                col--;
-            } else if (matrix[row][col] < target) {
-                row++;
-            } else {
-                return true;
-            }
+        int row = matrix.length, col = 0;
+        while (row > 0 && col < matrix[0].length) {
+            if (matrix[row][col] > target) row--;
+            else if (matrix[row][col] < target) col++;
+            else return true;
         }
         return false;
     }

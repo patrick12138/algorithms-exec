@@ -28,7 +28,13 @@ public class FindRepeatNumber {
 
     /**
      * 空间O(1)
+     * 遍历数组 nums，设索引初始值为 i = 0:
+     * 原因：在一个长度为n的数组nums里的所有数字都在0~n-1的范围内数组元素的索引和值是一对多的关系，因此可建立索引和值的映射
      *
+     * 若 nums[i] = i： 说明此数字已在对应索引位置，无需交换，因此跳过；
+     * 若 nums[nums[i]] = nums[i] ： 代表索引 nums[i] 处和索引 i 处的元素值都为 nums[i] ，即找到一组重复值，返回此值 nums[i] ；
+     * 否则： 交换索引为 i 和 nums[i] 的元素值，将此数字交换至对应索引位置。
+     * 若遍历完毕尚未返回，则返回 -1 。
      * @param nums
      */
     public int findRepeatNumber1(int[] nums) {

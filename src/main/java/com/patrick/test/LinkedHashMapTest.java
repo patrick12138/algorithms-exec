@@ -19,6 +19,7 @@ public class LinkedHashMapTest {
         hashSet.add(5);
         hashSet.add(3);
         hashSet.forEach(System.out::println);
+        boolean b = linkedHashMap.containsKey(1);
         linkedHashMap.forEach((key,value)-> System.out.println(key + value));
     }
 }

@@ -1,5 +1,7 @@
 package com.patrick.offer;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 /**
  * 字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。
  * 请定义一个函数实现字符串左旋转操作的功能。
@@ -9,14 +11,18 @@ public class ReverseLeftWords {
     /**
      * 列表遍历拼接
      * 时间空间都是O（N）
+     *
      * @param s
      * @param n
      * @return
      */
     public String reverseLeftWords2(String s, int n) {
+        StringBuilder stringBuilder = new StringBuilder();
         String res = "";
-        for (int i = n; i < n + s.length(); i++)
-            res += s.charAt(i % s.length()); //取余循环
+        for (int i = n; i < s.length(); i++)
+            res += s.charAt(i);
+        for (int i = 0; i < n; i++)
+            res += s.charAt(i);
         return res;
     }
 
@@ -41,6 +47,7 @@ public class ReverseLeftWords {
     /**
      * 字符串切片，整活
      * 时间空间都是O（N）
+     *
      * @param s
      * @param n
      * @return

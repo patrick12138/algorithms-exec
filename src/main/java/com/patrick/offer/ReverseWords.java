@@ -8,6 +8,11 @@ import sun.plugin2.message.LaunchJVMAppletMessage;
  * 例如输入字符串"I am a student. "，则输出"student. a am I"。
  */
 public class ReverseWords {
+    /**
+     * 试试
+     * @param s
+     * @return
+     */
     public static String reverseWords(String s) {
         int i = 0, j = s.length() - 1;
         s.trim();

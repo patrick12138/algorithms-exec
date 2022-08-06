@@ -33,12 +33,16 @@ public class MajorityElement {
         return nums[nums.length / 2];
     }
 
+    /**
+     * map其实靠getOrDefault方法的
+     * @param nums
+     * @return
+     */
     public static int majorityElement2(int[] nums) {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
-        System.out.println(map.getOrDefault(6, 0));
         map.forEach((key, val) -> System.out.println(key + "->" + val));
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             if (entry.getValue() > (nums.length / 2)) return entry.getKey();

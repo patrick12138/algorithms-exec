@@ -17,7 +17,7 @@ public class ReverseList {
      * @return
      */
     public static ListNode reverseList(ListNode head) {
-        if (head == null) return null;
+        if (head == null) return head;
         ListNode cur = head, pre = null;
         while (cur != null) {
             ListNode tmp = cur.next; // 暂存后继节点 cur.next
@@ -47,9 +47,9 @@ public class ReverseList {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{1,2,3,4,5};
+        int[] arr = new int[]{1, 2, 3, 4, 5};
         ListNode listNode = new ListNode();
-        ListUtils.tailCreatListByArr(listNode,arr);
+        ListUtils.tailCreatListByArr(listNode, arr);
         ListNode listNode1 = reverseList1(listNode);
         ListUtils.printList(listNode1);
     }

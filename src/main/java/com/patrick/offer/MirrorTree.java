@@ -35,9 +35,5 @@ public class MirrorTree {
     public static void main(String[] args) {
         int [] arr = {7,8,1,2,3,4,5,6};
         BinaryTreeNode biTree = TreeUtils.createBiTree(arr);
-        List<Integer> integerList = TreeUtils.preorderTraversal(biTree);
-        for (Integer integer : integerList) {
-            System.out.println(integer);
-        }
     }
 }

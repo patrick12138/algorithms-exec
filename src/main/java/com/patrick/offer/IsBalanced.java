@@ -9,13 +9,10 @@ import com.patrick.tree.BinaryTreeNode;
  */
 public class IsBalanced {
     public boolean isBalanced(BinaryTreeNode root) {
-        if (root == null) return true;
-        if (Math.abs(maxDepth(root.left) - maxDepth(root.right)) <= 1)
-            return isBalanced(root.left) && isBalanced(root.right);
-        return false;
+        return root == null ? true : Math.abs(depth(root.left) - depth(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
     }
 
-    public int maxDepth(BinaryTreeNode root) {
-        return root == null ? 0 : Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+    public int depth(BinaryTreeNode root) {
+        return root == null ? 0 : Math.max(depth(root.left), depth(root.right)) + 1;
     }
 }

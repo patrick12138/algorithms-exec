@@ -3,6 +3,10 @@ package com.patrick.leetcode;
 import com.patrick.tree.BinaryTreeNode;
 import com.patrick.tree.TreeUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * 给定一个二叉树 根节点root，树的每个节点的值要么是 0，要么是 1。请剪除该二叉树中所有节点的值为 0 的子树。
  *
@@ -33,8 +37,9 @@ public class BinaryTreePruning {
 
     public static void main(String[] args) {
         int [] arr = {1,0,1,0,1,1};
+        ArrayList<Integer> arrayList = new ArrayList<>();
         BinaryTreeNode biTree = TreeUtils.createBiTree(arr);
         BinaryTreeNode biTreeByPrune = pruneTree(biTree);
-        TreeUtils.preorderTraversal(biTreeByPrune).forEach(System.out::println);
+        TreeUtils.preorderTraversal(biTreeByPrune,arrayList).forEach(System.out::println);
     }
 }

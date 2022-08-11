@@ -1,5 +1,6 @@
 package com.patrick.tree;
 
+import com.patrick.singleton.EagerSingleton;
 import org.jcp.xml.dsig.internal.SignerOutputStream;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.stream.Collectors;
 
 public class TreeUtils {
     private static final List<Integer> lists = new ArrayList<>();
+    private static final List<Integer> res = new ArrayList<>();
 
     /**
      * 构建二叉树
@@ -64,23 +66,17 @@ public class TreeUtils {
      * @param root
      * @return
      */
-    public static List<Integer> preorderTraversal(BinaryTreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        preorder(root, res);
-        return res;
-    }
-
-    public static void preorder(BinaryTreeNode root, List<Integer> res) {
-        if (root == null) {
-            return;
-        }
+    public static List<Integer> preorderTraversal(BinaryTreeNode root, List<Integer> res1) {
+        if (root == null) return null;
         res.add(root.val);
-        preorder(root.left, res);
-        preorder(root.right, res);
+        preorderTraversal(root.left, res);
+        preorderTraversal(root.right, res);
+        return res;
     }
 
     /**
      * 非递归版 前序遍历N叉树
+     *
      * @param root
      * @return
      */
@@ -102,17 +98,18 @@ public class TreeUtils {
 
     /**
      * 非递归版，中序遍历二叉树
+     *
      * @param root
      */
-    public static void inOrderTraversal(BinaryTreeNode root){
+    public static void inOrderTraversal(BinaryTreeNode root) {
         Stack<BinaryTreeNode> stack = new Stack<>();  /* 初始化一个栈 */
-        while(root != null || !stack.isEmpty()) {        /* 当p为空且栈为空时算法结束 */
-            while(root != null) {
+        while (root != null || !stack.isEmpty()) {        /* 当p为空且栈为空时算法结束 */
+            while (root != null) {
                 stack.push(root);
                 root = root.left;                   /* 沿左指针走，沿途经过的(子树)根结点指针进栈 */
             }
             root = stack.pop();
-                       /* 当左指针为空时弹栈并访问该结点(子树根结点) */
+            /* 当左指针为空时弹栈并访问该结点(子树根结点) */
             lists.add(root.val);
             root = root.right;                     /* 向右跳一步到右子树上继续进行遍历过程 */
         }
@@ -120,27 +117,28 @@ public class TreeUtils {
 
     /**
      * 非递归版，后序遍历二叉树
+     *
      * @param root
      */
-    public static List<Integer> postOrderTraversal(BinaryTreeNode root){
+    public static List<Integer> postOrderTraversal(BinaryTreeNode root) {
         List<Integer> res = new ArrayList<>();
         Stack<BinaryTreeNode> stack = new Stack<>();
         BinaryTreeNode q;
         q = null;
-        while(root!=null || !stack.isEmpty()) {
-            if(root != q) {
-                while(root != null) {
+        while (root != null || !stack.isEmpty()) {
+            if (root != q) {
+                while (root != null) {
                     stack.push(root);                 /* p非空时，压栈 */
-                    if(root.left != null) root = root.left; /* 沿左指针下移*/
+                    if (root.left != null) root = root.left; /* 沿左指针下移*/
                     else root = root.right;          /*若左指针为空，则沿右指针下移 */
                 }
             }
-            if(stack.isEmpty()) break;         /* 若栈空，则结束 */
+            if (stack.isEmpty()) break;         /* 若栈空，则结束 */
             q = stack.peek();                   /* 取栈顶指针送q，*/
-            if(q.right == root) {             /* 若q的右指针为空(p为空时)或指向刚刚访问过的结点 */
-                root =stack.pop();                    /* 则弹栈并访问该结点 */
+            if (q.right == root) {             /* 若q的右指针为空(p为空时)或指向刚刚访问过的结点 */
+                root = stack.pop();                    /* 则弹栈并访问该结点 */
                 res.add(root.val);
-            } else root =q.right;            /* 否则，沿q的右指针继续遍历访问 */
+            } else root = q.right;            /* 否则，沿q的右指针继续遍历访问 */
         }
         return res;
     }
@@ -151,7 +149,7 @@ public class TreeUtils {
         inOrderTraversal(tree);
         lists.forEach(System.out::print);
         System.out.println();
-        preorderTraversal(tree).forEach(System.out::print);
+        preorderTraversal(tree,res).forEach(System.out::print);
         System.out.println();
         postOrderTraversal(tree).forEach(System.out::print);
     }

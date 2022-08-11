@@ -21,18 +21,19 @@ import com.patrick.tree.BinaryTreeNode;
  *  3  3
  */
 public class IsSymmetric {
+    /**
+     *
+     * @param root
+     * @return
+     */
     public boolean isSymmetric(BinaryTreeNode root) {
-        if (root == null)
-            return true;
+        if (root == null) return true;
         return helper(root.left, root.right);
     }
 
     public boolean helper(BinaryTreeNode root1, BinaryTreeNode root2) {
-        if (root1 == null && root2 == null)
-            return true;
-        if (root1 == null || root2 == null)
-            return false;
-        return root1.val == root2.val && helper(root1.left, root2.right) &&
-                helper(root1.right, root2.left);
+        if (root1 == null && root2 == null) return true;
+        if (root1 == null || root2 == null) return false;
+        return root1.val == root2.val && helper(root1.left, root2.right) && helper(root1.right, root2.left);
     }
 }

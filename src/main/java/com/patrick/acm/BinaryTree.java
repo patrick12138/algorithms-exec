@@ -27,7 +27,7 @@ public class BinaryTree {
      * @param arr 树的数组表示
      * @return 构建成功后树的根节点
      */
-    public TreeNode constructBinaryTree(final int[] arr) {
+    public TreeNode constructBinaryTree(int[] arr) {
         // 构建和原数组相同的树节点列表
         List<TreeNode> treeNodeList = arr.length > 0 ? new ArrayList<>(arr.length) : null;
         TreeNode root = null;
@@ -43,13 +43,15 @@ public class BinaryTree {
             }
         }
         // 遍历一遍，根据规则左右孩子赋值就可以了
-        // 注意这里 结束规则是 i * 2 + 2 < arr.length，避免空指针
-        for (int i = 0; i * 2 + 2 < arr.length; i++) {
+        // 注意这里 结束规则是 i * 2 + 1 < arr.length，避免空指针
+        for (int i = 0; i * 2 + 1 < arr.length; i++) {
             TreeNode node = treeNodeList.get(i);
             if (node != null) {
                 // 线性存储转连式存储关键逻辑
                 node.left = treeNodeList.get(2 * i + 1);
-                node.right = treeNodeList.get(2 * i + 2);
+                if (i * 2 + 2 < arr.length) {
+                    node.right = treeNodeList.get(2 * i + 2);
+                }
             }
         }
         return root;

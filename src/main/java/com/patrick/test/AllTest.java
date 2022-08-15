@@ -1,6 +1,7 @@
 package com.patrick.test;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -28,7 +29,6 @@ public class AllTest {
 //        int [] arr = new int[]{1,2,3,4};
 //        System.out.println(arr.length);
 //        System.out.println(s.length());
-
         System.out.println("acv".compareTo("asd"));
     }
 }

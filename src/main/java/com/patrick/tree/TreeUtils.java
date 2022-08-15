@@ -75,6 +75,25 @@ public class TreeUtils {
     }
 
     /**
+     *  非递归版 前序遍历二叉树
+     * @param root
+     * @return
+     */
+    public List<Integer> preorderTraversal(BinaryTreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Stack<BinaryTreeNode> stack = new Stack<>();
+        if (root == null) return res;
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            BinaryTreeNode node = stack.pop();
+            res.add(node.val);
+            if(node.right != null) stack.add(node.right);
+            if(node.left != null) stack.add(node.left);
+        }
+        return res;
+    }
+
+    /**
      * 非递归版 前序遍历N叉树
      *
      * @param root
@@ -83,8 +102,7 @@ public class TreeUtils {
     public List<Integer> preorder(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
-        if (root == null)
-            return res;
+        if (root == null) return res;
         stack.push(root);
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();

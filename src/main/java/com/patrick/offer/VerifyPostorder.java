@@ -3,6 +3,9 @@ package com.patrick.offer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class VerifyPostorder {
     List<Integer> arrayList = new ArrayList<>();
     public boolean verifyPostorder(int[] postorder) {

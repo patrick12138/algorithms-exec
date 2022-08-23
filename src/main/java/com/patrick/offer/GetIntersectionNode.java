@@ -36,8 +36,8 @@ public class GetIntersectionNode {
      * 当 node2 到达链表 headB 的末尾时，重新定位到链表 headA 的头结点。
      * 这样，当它们相遇时，所指向的结点就是第一个公共结点。
      * <p>
-     * 双指针，浪漫相遇解法 他真我哭
      *
+     * 双指针，浪漫相遇解法 他真我哭
      * @param headA
      * @param headB
      * @return

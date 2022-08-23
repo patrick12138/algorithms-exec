@@ -60,9 +60,19 @@ public class GetKthFromEnd {
         return latter;
     }
 
+    public static void main(String[] args) {
+        ListNode listNode = new ListNode();
+        int[] arr = new int[]{1, 2, 3, 5, 7, 8};
+        ListUtils.headCreatListByArr(listNode, arr);
+        ListUtils.printList(listNode);
+        System.out.println();
+        ListUtils.printList(getKthFromEnd(listNode, 2));
+    }
+
     class Solution {
         /**
          * 简洁写法，主义k == 0 还可以继续走
+         *
          * @param head
          * @param k
          * @return
@@ -79,14 +89,5 @@ public class GetKthFromEnd {
             }
             return head;
         }
-    }
-
-    public static void main(String[] args) {
-        ListNode listNode = new ListNode();
-        int[] arr = new int[]{1, 2, 3, 5, 7, 8};
-        ListUtils.headCreatListByArr(listNode, arr);
-        ListUtils.printList(listNode);
-        System.out.println();
-        ListUtils.printList(getKthFromEnd(listNode, 2));
     }
 }

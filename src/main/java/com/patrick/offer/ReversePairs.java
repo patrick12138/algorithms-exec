@@ -5,12 +5,14 @@ package com.patrick.offer;
  * 在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。
  */
 public class ReversePairs {
-   int[] nums, tmp;
+    int[] nums, tmp;
+
     public int reversePairs(int[] nums) {
         this.nums = nums;
         tmp = new int[nums.length];
         return mergeSort(0, nums.length - 1);
     }
+
     private int mergeSort(int l, int r) {
         // 终止条件
         if (l >= r) return 0;

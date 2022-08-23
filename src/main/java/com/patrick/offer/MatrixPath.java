@@ -1,7 +1,9 @@
 package com.patrick.offer;
 
+/**
+ *
+ */
 public class MatrixPath {
-
     public static boolean exist1(char[][] board, String word) {
         int row = board.length;
         int col = board[0].length;

@@ -6,6 +6,7 @@ package com.patrick.offer;
 public class MyPow {
     /**
      * 递归
+     * 快速幂
      * @param x
      * @param n
      * @return

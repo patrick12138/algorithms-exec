@@ -1,5 +1,8 @@
 package com.patrick.offer;
 
+/**
+ * https://leetcode.cn/problems/ba-zi-fu-chuan-zhuan-huan-cheng-zheng-shu-lcof/
+ */
 public class StrToInt {
     /**
      * 有点恶心人

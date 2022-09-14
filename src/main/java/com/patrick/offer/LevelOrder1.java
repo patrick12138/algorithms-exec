@@ -31,10 +31,16 @@ public class LevelOrder1 {
         int[] res = new int[ans.size()];
         for (int i = 0; i < ans.size(); i++)
             res[i] = ans.get(i);
+
         return res;
     }
 
     public static void main(String[] args) {
-
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        linkedList.offer(1);
+        linkedList.offer(2);
+        linkedList.offer(3);
+        System.out.println(linkedList.poll());
+//        linkedList.forEach(System.out::println);
     }
 }

@@ -3,10 +3,7 @@ package com.patrick.offer;
 
 import com.patrick.tree.BinaryTreeNode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * 剑指 Offer 32 - II. 从上到下打印二叉树 II
@@ -14,7 +11,7 @@ import java.util.Queue;
  */
 public class LevelOrder2 {
     public List<List<Integer>> levelOrder(BinaryTreeNode root) {
-        Queue<BinaryTreeNode> queue = new LinkedList<>();
+        Deque<BinaryTreeNode> queue = new LinkedList<>();
         List<List<Integer>> res = new ArrayList<>();
         if (root != null) queue.add(root);
         while (!queue.isEmpty()) {

@@ -34,7 +34,6 @@ public class ReverseLeftWords {
         return new String(chars, 0, length);
     }
 
-
     private static void swap(char[] arr, int i, int j) {
         if (i == j) {
             return;

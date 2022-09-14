@@ -1,5 +1,8 @@
 package com.patrick.sort;
 
+/**
+ * 冒泡排序，稳定，n²
+ */
 public class BubbleSort {
     public static int[] bubbleSort(int[] arr) {
         int temp;

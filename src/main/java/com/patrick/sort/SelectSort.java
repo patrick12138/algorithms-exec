@@ -1,5 +1,8 @@
 package com.patrick.sort;
 
+/**
+ * 选择排序，不稳定，n²
+ */
 public class SelectSort {
     public static int [] selectSort(int[] arr){
         int minIndex, temp;
